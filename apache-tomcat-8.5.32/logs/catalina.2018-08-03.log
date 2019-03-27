@@ -1,0 +1,44 @@
+03-Aug-2018 15:35:31.063 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.32
+03-Aug-2018 15:35:31.073 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 20 2018 19:50:35 UTC
+03-Aug-2018 15:35:31.074 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.32.0
+03-Aug-2018 15:35:31.074 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+03-Aug-2018 15:35:31.074 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.13.4
+03-Aug-2018 15:35:31.074 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+03-Aug-2018 15:35:31.075 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home
+03-Aug-2018 15:35:31.075 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           9+181
+03-Aug-2018 15:35:31.076 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Aug-2018 15:35:31.076 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Library/apache-tomcat-8.5.32
+03-Aug-2018 15:35:31.076 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Library/apache-tomcat-8.5.32
+03-Aug-2018 15:35:31.077 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+03-Aug-2018 15:35:31.078 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+03-Aug-2018 15:35:31.078 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+03-Aug-2018 15:35:31.078 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Library/apache-tomcat-8.5.32/conf/logging.properties
+03-Aug-2018 15:35:31.078 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Aug-2018 15:35:31.078 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+03-Aug-2018 15:35:31.079 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+03-Aug-2018 15:35:31.079 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+03-Aug-2018 15:35:31.079 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+03-Aug-2018 15:35:31.079 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Library/apache-tomcat-8.5.32
+03-Aug-2018 15:35:31.079 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Library/apache-tomcat-8.5.32
+03-Aug-2018 15:35:31.080 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Library/apache-tomcat-8.5.32/temp
+03-Aug-2018 15:35:31.080 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/kai/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+03-Aug-2018 15:35:31.146 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+03-Aug-2018 15:35:31.180 資訊 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Aug-2018 15:35:31.187 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Aug-2018 15:35:31.190 資訊 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Aug-2018 15:35:31.191 資訊 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 967 ms
+03-Aug-2018 15:35:31.272 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+03-Aug-2018 15:35:31.273 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.32
+03-Aug-2018 15:35:31.286 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Library/apache-tomcat-8.5.32/webapps/docs]
+03-Aug-2018 15:35:31.842 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Library/apache-tomcat-8.5.32/webapps/docs] has finished in [555] ms
+03-Aug-2018 15:35:31.843 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Library/apache-tomcat-8.5.32/webapps/manager]
+03-Aug-2018 15:35:31.895 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Library/apache-tomcat-8.5.32/webapps/manager] has finished in [52] ms
+03-Aug-2018 15:35:31.896 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Library/apache-tomcat-8.5.32/webapps/examples]
+03-Aug-2018 15:35:32.310 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Library/apache-tomcat-8.5.32/webapps/examples] has finished in [414] ms
+03-Aug-2018 15:35:32.311 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Library/apache-tomcat-8.5.32/webapps/ROOT]
+03-Aug-2018 15:35:32.337 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Library/apache-tomcat-8.5.32/webapps/ROOT] has finished in [26] ms
+03-Aug-2018 15:35:32.337 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Library/apache-tomcat-8.5.32/webapps/host-manager]
+03-Aug-2018 15:35:32.371 資訊 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Library/apache-tomcat-8.5.32/webapps/host-manager] has finished in [34] ms
+03-Aug-2018 15:35:32.374 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+03-Aug-2018 15:35:32.385 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+03-Aug-2018 15:35:32.387 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in 1196 ms

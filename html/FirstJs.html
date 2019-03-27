@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <script src="test.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script> 
+    <meta charset="utf-8">
+    <title>linked dropdowns</title>
+</head>
+
+<body  >
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <select ng-model="role" ng-options="member for member in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+        
+        <div ng-show="role!=''">選擇的角色是：{{role}}</div>
+    </div>
+    
+
+    <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope){
+                $scope.onepiece = ['蒙其·D·魯夫', '羅羅亞·索隆', '娜美', '騙人布', '香吉士', '多尼多尼·喬巴', '妮可·羅賓', '佛朗基', '布魯克' ];
+               $scope.test="123";
+            });
+        </script>
+</body>
+
+</html>

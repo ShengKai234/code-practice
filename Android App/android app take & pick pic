@@ -1,0 +1,117 @@
+/*- 啟用相機 -*/
+case R.id.btn_Photo:
+    // 產生新檔案名稱，格式：年+月+日+時+分+秒+毫秒+_+hash；例如：20181128092513886_502365950
+    Date cdate = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddkkmmssSSS");
+    img_name = "IMG_tpline_" + sdf.format(cdate).toString() + ".jpeg";
+
+    //創建Intent,使用MediaStore的ACTION_IMAGE_CAPTURE調用相機
+    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); //添加这一句表示对目标应用临时授权该Uri所代表的文件
+
+
+    File tmpFile = new File(Environment.getExternalStorageDirectory()+"/DCIM/Camera",img_name);
+    Uri outputFileUri = Uri.fromFile(tmpFile);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+    //開啟相機，傳入上面的Intent
+    startActivityForResult(intent, 0);
+    break;
+
+case R.id.btn_PickPhoto:
+    Intent intentSelect = new Intent(Intent.ACTION_GET_CONTENT);
+    // 讀取格式設定
+    intentSelect.setType("image/jpeg");
+    // 取得照片圖庫
+    // 複選功能，如要複選需長按
+    intentSelect.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+    // requestCode : 1 為開啟圖庫
+    startActivityForResult(intentSelect, 1);
+    break;
+
+case R.id.btn_DeletePhoto:
+    for(int i = 0; i < filesList.size(); i++){
+        if (filesList.get(i).getCkboxFiles()){
+            filesList.remove(i);
+        }
+    }
+    ImageAdapter IA = new ImageAdapter(mainActivity, Macro.getPhotoDcisNo_file(),filesList);
+    gridViewPhoto.setAdapter(IA);
+    InsertPhotoDataToSqlite();
+    break;
+
+
+
+// -------------------------------------------------------------
+
+///拍照完後執行功能
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(resultCode==mainActivity.RESULT_OK){
+            Uri uriSingle = null;
+            //啟用多媒體, requestCode：0 開啟相機, 1 開啟圖片資料夾
+            switch (requestCode) {
+                case 0:
+                    // 取得拍照後圖片檔案 File
+                    File fileByTake = new File(Environment.getExternalStorageDirectory() +"/DCIM/Camera/"+ img_name);
+                    // File to Uri
+                    uriSingle = Uri.fromFile(fileByTake);
+                    // 存入uri
+                    FilesListBean filesBean = new FilesListBean();
+                    filesBean.setFilesUri(uriSingle.toString());
+                    filesBean.setCkboxFiles(false);
+                    filesList.add(filesBean);
+                    // 放入filesList於顯示配飾器中
+                    ImageAdapter IA0 = new ImageAdapter(mainActivity, Macro.getPhotoDcisNo_file(),filesList);
+                    gridViewPhoto.setAdapter(IA0);
+                    break;
+
+                case 1:
+                    // 擷取複選照片
+                    ClipData clipData = intent.getClipData();
+                    // 判斷ClipData是否為null, true: 有複選圖片, false: 只選擇一張圖片
+                    if(clipData!=null) {
+                        // 選擇數量
+                        int count = clipData.getItemCount();
+                        if (count > 0) {
+                            // 批次存取選擇圖檔路徑uri
+                            for (int i = 0; i < count; i++) {
+                                // 取得選完照片後uri，此uri 在4.4版後，無法直接使用
+                                Uri uri = clipData.getItemAt(i).getUri();
+                                // 於PhotoUtils中，解析uri to newUri
+                                Uri newUri = Uri.parse(PhotoUtils.getPath(this.mainActivity, uri));
+                                // uri to File
+                                File file = new File(newUri.getPath());
+                                // 取得File to uri
+                                newUri = Uri.fromFile(file);
+                                // 存入List供後續顯示用
+                                FilesListBean filesListBean = new FilesListBean();
+                                filesListBean.setFilesUri(newUri.toString());
+                                filesListBean.setCkboxFiles(false);
+                                filesList.add(filesListBean);
+                            }
+                        }
+                    }else {
+                        // 取得單選圖片(以下步驟同上)
+                        uriSingle = intent.getData();
+                        
+                        Uri newUri = Uri.parse(PhotoUtils.getPath(this.mainActivity, uriSingle));
+
+                        File file = new File(newUri.getPath());
+
+                        newUri = Uri.fromFile(file);
+                        FilesListBean filesListBean = new FilesListBean();
+                        filesListBean.setFilesUri(newUri.toString());
+                        filesListBean.setCkboxFiles(false);
+                        filesList.add(filesListBean);
+                    }
+                    ImageAdapter IA = new ImageAdapter(mainActivity, Macro.getPhotoDcisNo_file(),filesList);
+                    gridViewPhoto.setAdapter(IA);
+                    InsertPhotoDataToSqlite();
+                    break;
+            }
+        }
+    }
